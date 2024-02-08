@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pyramid/features/home/ui/product_tile_widget.dart';
-import '../../goTo/ui/WelcomHome.dart';
-import '../bloc/home_bloc.dart';
+import 'package:pyramid/features/home/ui/tile.dart';
+import '../../WelcomeHome/ui/WelcomHome.dart';
+import '../bloc/hbloc.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,12 +14,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var currentIndex = 0;
-  List<String> listOfStrings = ['Home','Explore','DashB','Profile'];                              //bottom nav bar icons name
+  List<String> listOfStrings = ['Home','Explore','DashBoard','Profile'];                              //bottom nav bar icons name
   List<IconData> listOfIcons = [Icons.home,Icons.explore,Icons.dashboard,Icons.person];           //bottom navigation bar icons
   List<String> listOfStringsc = ['Plank\nChallenge','Sprint\nChallenge','Squat\nChallenge']; //challenges name
-  List<Color> listOfColorStrings = [Colors.limeAccent.shade400,Colors.black54,Colors.white]; //challenges background color
+  List<Color> listOfColorStrings = [Colors.limeAccent.shade400,Colors.greenAccent.shade700,Colors.black26]; //challenges background color
   List<Color> listOfColorStringsc = [Colors.black,Colors.white,Colors.black];                //challenges text color
-  List<Color> listOfColorStringsci = [Colors.white,Colors.black12,Colors.limeAccent.shade200]; ////challenges icon color
+  List<Color> listOfColorStringsci = [Colors.white,Colors.black87,Colors.limeAccent.shade200]; ////challenges icon color
   List<IconData> listOfIconsc = [Icons.fireplace_outlined,Icons.running_with_errors_outlined,Icons.water_drop_outlined];  ////challenges icon
 
   @override
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
       buildWhen: (previous, current) => current is !HomeActionState,
         listener: (BuildContext context, Object? state) {
           if(state is HomeNavigateToPageActionState){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const GoTo()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const WelcomHome()));
           }
         },
       builder: (BuildContext context, state) {
@@ -263,12 +263,12 @@ class _HomeState extends State<Home> {
                                       borderRadius: BorderRadius.circular(10.0),
                                       color: listOfColorStrings[index],
                                     ),
-                                    width: 200,
+                                    width: 140,
                                     child: Stack(
                                       children: [
                                         Container(
                                           margin: EdgeInsets.only(bottom: 12,right: 12),
-                                          alignment :Alignment.bottomRight,
+                                          alignment :Alignment.topRight,
                                           child: Icon(listOfIconsc[index],color: listOfColorStringsci[index], size: 60,),
                                         ),
                                         Container(

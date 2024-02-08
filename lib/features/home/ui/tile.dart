@@ -3,8 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../bloc/home_bloc.dart';
-import '../model/home_product_data.dart';
+import '../bloc/hbloc.dart';
+import '../model/pro_data.dart';
 
 
 class ProductTileWidget extends StatelessWidget {                         //Card for 'best for you and fast warmup
@@ -31,24 +31,25 @@ class ProductTileWidget extends StatelessWidget {                         //Card
                 padding: const EdgeInsets.only(top:8.0,),
                 child: Container(
                   alignment: Alignment.center,
-                  height: 80,
+                  height: 100,
                   width: 80,
-                  child: Center(child: Image.network(productDataModel.imageUrl,fit: BoxFit.fitWidth,)),
+                  child: Center(child: Image.network(productDataModel.imageUrl,fit: BoxFit.fill,)),
                 ),
               ),
               Container(
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(' '+productDataModel.name+' '),
+                      Text(' '+productDataModel.name+' ',style: TextStyle(fontWeight: FontWeight.w900),),
                       SizedBox(height: 10,),
                       Container(
                           decoration: BoxDecoration(
                             color: Colors.black12,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Text('  '+productDataModel.time+' min ')),
+                          child: Text('  '+productDataModel.time+' min ',textAlign: TextAlign.left,)),
                       SizedBox(
                         height: 4,
                       ),
@@ -57,7 +58,7 @@ class ProductTileWidget extends StatelessWidget {                         //Card
                             color: Colors.black12,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Text('  '+productDataModel.level+' ')),
+                          child: Text('  '+productDataModel.level+' ',textAlign: TextAlign.left,)),
                     ],
                   ),
                 ),

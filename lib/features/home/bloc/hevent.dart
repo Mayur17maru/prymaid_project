@@ -1,4 +1,4 @@
-part of 'home_bloc.dart';
+part of 'hbloc.dart';
 
 abstract class HomeEvent{}   //Event to which bloc respond
 

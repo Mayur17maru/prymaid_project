@@ -1,5 +1,5 @@
 
-part of 'home_bloc.dart';
+part of 'hbloc.dart';
 
 //States for bloc to respond to client query
 

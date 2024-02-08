@@ -5,9 +5,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:pyramid/data/exercise_options.dart';
 
-import '../model/home_product_data.dart';
-part 'home_event.dart';
-part 'home_state.dart';
+import '../model/pro_data.dart';
+part 'hevent.dart';
+part 'hstate.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
